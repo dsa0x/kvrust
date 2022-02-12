@@ -1,4 +1,6 @@
 pub mod kvrust;
+mod strct;
+use strct::*;
 
 fn main() {
     let mut kv: kvrust::Kvrust<&str, &str> = kvrust::Kvrust::new();
@@ -16,6 +18,13 @@ fn main() {
     }
     for v in values {
         let val = kv.get(v.0);
-        println!("{}", val);
+        print!("{} ", val);
     }
+    println!();
+
+    let new_test_str = test();
+
+    let new_str = TestStr::new(50);
+
+    println!("Is younger: {:?}", new_str.is_younger(new_test_str))
 }
